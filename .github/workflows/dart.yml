@@ -29,3 +29,5 @@ jobs:
         relativePath: flutter_app 
         # Minimum level for annotations. Accepted values are [info, warning, error].
         minAnnotationLevel: warning
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v1.1
