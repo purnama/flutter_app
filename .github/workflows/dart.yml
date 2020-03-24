@@ -1,0 +1,31 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image:  google/dart:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: pub get
+    - name: Run tests
+      run: pub run test
+    - name: Dart/Flutter Package Analyzer
+      uses: axel-op/dart-package-analyzer@v2.0.0
+      with:
+        # Token to connect to Github. Use secrets.GITHUB_TOKEN
+        githubToken: secrets.GITHUB_TOKEN
+        # Path of your package in your repository
+        relativePath: flutter_app 
+        # Minimum level for annotations. Accepted values are [info, warning, error].
+        minAnnotationLevel: warning
