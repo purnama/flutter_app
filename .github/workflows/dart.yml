@@ -23,8 +23,8 @@ jobs:
       run: flutter pub get
     - name: Build Flutter
       run: flutter build aot
-    - name: Run tests
-      run: flutter pub run test
+    #- name: Run tests
+    #  run: flutter pub run test
     - name: Dart/Flutter Package Analyzer
       uses: axel-op/dart-package-analyzer@v2.0.0
       with:
