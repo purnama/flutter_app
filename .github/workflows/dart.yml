@@ -11,21 +11,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    container:
-      image:  google/dart:latest
-
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
+      with:
+        java-version: '12.x'
     - uses: subosito/flutter-action@v1
-        with:
-          channel: 'stable'
+      with:
+        channel: 'stable'
     - name: Install dependencies
       run: flutter pub get
-     - name: Build Flutter
-     run: flutter build aot
+    - name: Build Flutter
+      run: flutter build aot
     - name: Run tests
       run: flutter pub run test
     - name: Dart/Flutter Package Analyzer
