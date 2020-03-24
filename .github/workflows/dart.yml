@@ -26,13 +26,6 @@ jobs:
     #- name: Run tests
     #  run: flutter pub run test
     - name: Dart/Flutter Package Analyzer
-      uses: flutter analyze
-      with:
-        # Token to connect to Github. Use secrets.GITHUB_TOKEN
-        githubToken: secrets.GITHUB_TOKEN
-        # Path of your package in your repository
-        relativePath: flutter_app 
-        # Minimum level for annotations. Accepted values are [info, warning, error].
-        minAnnotationLevel: warning
+      run: flutter analyze
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.1
